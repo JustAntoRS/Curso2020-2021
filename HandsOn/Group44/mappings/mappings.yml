@@ -1,0 +1,35 @@
+prefixes:
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  xml: http://www.w3.org/XML/1998/namespace
+  xsd: http://www.w3.org/2001/XMLSchema#
+  owl: http://www.w3.org/2002/07/owl#
+  rr: http://www.w3.org/ns/r2rml#
+
+  rev: http://purl.org/stuff/rev#
+  dct: http://purl.org/dc/terms/
+
+  schema: http://schema.org/
+  foaf: http://xmlns.com/foaf/0.1/
+
+  ql: http://semweb.mmlab.be/ns/ql#
+  rml: http://semweb.mmlab.be/ns/rml#
+
+  vocab: http://www.semanticweb.org/group44/ontologies/2020/9/untitled-ontology-4#
+  base: http://www.semanticweb.org/group44/ontologies/2020/9/untitled-ontology-4/estacion#
+
+
+
+mapping: 
+  primerMapping_mejorarNombreDeEsto:
+    sources:
+      access: ../csv/MadridAirQuality2020-update.csv
+      referenceFormulation: csv
+      iterator: $
+    s: http://www.semanticweb.org/group44/ontologies/2020/9/untitled-ontology-4/$(referenciaColumna)
+    po:
+      - [a, estacion]
+      - [estacion:contieneEstaciones,$(Municipio)]
+      - [estacion:formaParteDe,$(Provincia)]
+      - [estacion:tomaMuestras,$(Estacion)]
+
